@@ -1,0 +1,1614 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+/* ======================================================
+   DESIGN SYSTEM — LUXURY FINTECH PALETTE
+====================================================== */
+
+:root {
+  --bg-main: #ece6db;
+  --bg-depth: #ddd4c5;
+
+  --sidebar-dark-1: #2a2420;
+  --sidebar-dark-2: #332c27;
+
+  --gold-primary: #d4b373;
+  --gold-soft: rgba(212,179,115,0.18);
+
+  --white-glass: rgba(255,255,255,0.75);
+  --white-glass-strong: rgba(255,255,255,0.88);
+
+  --text-dark: #2e2622;
+  --text-soft: #7d746a;
+
+  --shadow-deep:
+      0 45px 90px rgba(0,0,0,0.35);
+
+  --shadow-soft:
+      0 25px 60px rgba(60,45,25,0.15);
+
+  --glow-gold:
+      0 0 15px rgba(212,179,115,0.5),
+      0 0 40px rgba(212,179,115,0.25);
+}
+
+/* ======================================================
+   BASE
+====================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--text-dark);
+
+  background:
+    radial-gradient(circle at 20% 15%, #f5f1ea, #e8e0d3 45%, #dcd2c2);
+}
+
+/* ======================================================
+   GLOBAL LAYOUT SYSTEM (NO OVERLAP EVER)
+====================================================== */
+
+.layout {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  height: 100vh;
+}
+
+.content {
+  height: 100vh;
+  overflow-y: auto;
+  padding: 70px 80px;
+}
+
+/* ======================================================
+   SIDEBAR — ULTRA DARK GLASS PREMIUM
+====================================================== */
+
+.sidebar {
+  height: calc(100vh - 40px);
+  margin: 20px;
+
+  background:
+    linear-gradient(
+      160deg,
+      var(--sidebar-dark-1),
+      var(--sidebar-dark-2)
+    );
+
+  border-radius: 32px;
+
+  border: 1px solid rgba(255,255,255,0.05);
+
+  box-shadow:
+    var(--shadow-deep),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+
+  backdrop-filter: blur(30px);
+
+  padding: 32px 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* GOLD EDGE LIGHT */
+
+.sidebar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  padding: 1px;
+  background: linear-gradient(
+      145deg,
+      rgba(212,179,115,0.4),
+      transparent 40%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+/* ======================================================
+   LOGO
+====================================================== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+
+  background: linear-gradient(145deg,#e6c690,#c8a863);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#1f1a16;
+  font-weight:600;
+
+  box-shadow:
+    0 10px 25px rgba(212,179,115,0.6);
+}
+
+.logo-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ======================================================
+   SIDEBAR TEXT + LINKS
+====================================================== */
+
+.section-title {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 14px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:0.3s;
+  color:rgba(255,255,255,0.8);
+}
+
+.section-title:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.section-left {
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+/* ICON BOX */
+
+.icon-box {
+  width:38px;
+  height:38px;
+  border-radius:12px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.07),
+      rgba(255,255,255,0.02)
+    );
+
+  color: var(--gold-primary);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 8px 18px rgba(0,0,0,.5);
+
+  transition: all .3s ease;
+}
+
+.section-title:hover .icon-box {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.6),
+    var(--glow-gold);
+}
+
+/* SUBMENU */
+
+.dropdown-panel {
+  padding-left: 52px;
+  margin-top: 6px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.panel-link {
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:14px;
+  color:rgba(255,255,255,0.6);
+  transition:0.25s;
+}
+
+.panel-link:hover {
+  background: var(--gold-soft);
+  color:#fff;
+  transform: translateX(6px);
+}
+
+.panel-link.active {
+  background: linear-gradient(
+    90deg,
+    rgba(212,179,115,.35),
+    rgba(212,179,115,.08)
+  );
+  color:#fff;
+  box-shadow: var(--glow-gold);
+}
+
+/* ======================================================
+   PAGE TITLE
+====================================================== */
+
+.page-title {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  letter-spacing: .5px;
+}
+
+/* ======================================================
+   CARD GRID
+====================================================== */
+
+.card-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+  gap:36px;
+}
+
+/* ======================================================
+   PREMIUM GLASS CARD
+====================================================== */
+
+.card {
+  position:relative;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--white-glass-strong),
+      var(--white-glass)
+    );
+
+  border-radius: 28px;
+  padding: 28px;
+
+  border: 1px solid rgba(255,255,255,0.6);
+
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    var(--shadow-soft),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s ease;
+
+  cursor:pointer;
+  overflow:hidden;
+}
+
+/* GLOSS REFLECTION */
+
+.card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,.65) 50%,
+    transparent 70%
+  );
+  opacity:0;
+}
+
+.card:hover::before {
+  opacity:1;
+  animation: sheen 1.2s ease;
+}
+
+@keyframes sheen {
+  from { transform: translateX(-140%); }
+  to { transform: translateX(140%); }
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 50px 120px rgba(60,45,25,0.25);
+}
+
+.card-title {
+  font-size:18px;
+  font-weight:600;
+}
+
+.card-desc {
+  font-size:14px;
+  color: var(--text-soft);
+  margin-top:8px;
+}
+
+/* ======================================================
+   PROFILE AREA
+====================================================== */
+
+.profile {
+  margin-top:auto;
+  padding-top:30px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.avatar {
+  width:44px;
+  height:44px;
+  border-radius:50%;
+
+  background: linear-gradient(145deg,#e6c690,#c8a863);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:600;
+  color:#1e1814;
+
+  box-shadow: var(--glow-gold);
+}
+
+.profile-name {
+  color:#fff;
+  font-weight:500;
+}
+
+.profile-role {
+  font-size:12px;
+  color:rgba(255,255,255,0.5);
+}
+/* Sidebar scroll fix */
+.sidebar {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+/* Custom scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.45);
+}
+/* Sidebar Logo */
+.sidebar-logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:18px 18px 14px 18px;
+  margin-bottom:10px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo-text{
+  color:#f7e7b5;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.logo-icon{
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  background:linear-gradient(145deg,#ffe08a,#caa94c);
+  color:#2d2100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:18px;
+  animation:payPulse 2s infinite ease-in-out;
+  box-shadow:0 0 12px rgba(255,215,0,.4);
+}
+
+/* animation */
+@keyframes payPulse{
+  0%{ transform:scale(1); box-shadow:0 0 10px rgba(255,215,0,.4);}
+  50%{ transform:scale(1.15); box-shadow:0 0 22px rgba(255,215,0,.9);}
+  100%{ transform:scale(1);}
+}
+.dashboard-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-size:34px;
+  font-weight:700;
+  color:#353406;
+  margin-bottom:25px;
+  letter-spacing:2px;
+}
+
+.dash-icon{
+  font-size:32px;
+  animation:cardFloat 3s infinite ease-in-out;
+}
+
+@keyframes cardFloat{
+  0%{ transform:translateY(0px) rotate(0deg);}
+  50%{ transform:translateY(-6px) rotate(8deg);}
+  100%{ transform:translateY(0px) rotate(0deg);}
+}
+/* Sidebar text visibility fix */
+.sidebar,
+.sidebar * {
+  color: #f5e6b3 !important;   /* gold light */
+}
+
+/* Sub menu links */
+.sidebar a,
+.sidebar span {
+  color: #f5e6b3 !important;
+}
+
+/* Hover */
+.sidebar a:hover,
+.sidebar .menu-item:hover {
+  color: #ffffff !important;
+}
+
+/* Active link */
+.sidebar .active {
+  color: #ffd700 !important;
+  font-weight: 600;
+}
+.sidebar svg,
+.sidebar i {
+  color: #f0d98a !important;
+  opacity: 0.95;
+}
+.sidebar {
+  text-shadow: 0 0 2px rgba(0,0,0,0.6);
+}
+
+
+
+
+
+/* ===== Generic Report LinkPage Styling ===== */
+.page-container .report-box {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.page-container .report-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+.page-container .report-heading {
+  font-size: 20px;
+  margin-bottom: 18px;
+  color: #2b2116;
+  border-bottom: 2px solid rgba(0,0,0,0.15);
+  padding-bottom: 8px;
+}
+
+.page-container .report-links {
+  display: flex;
+  flex-direction: column; /* vertical links */
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.page-container .report-link {
+  text-decoration: none;
+  color: #2b2116;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: fit-content;
+  transition: 0.2s;
+}
+
+.page-container .report-link:hover {
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  color: #000;
+  transform: translateX(5px) translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+
+
+
+
+
+
+
+/* proof pay reports style*/
+/* PAGE TITLE */
+.page-title{
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+}
+
+/* Wrapper */
+.reports-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Box Design */
+.report-box{
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  transition: 0.25s;
+}
+
+.report-box:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+/* Heading */
+.report-heading{
+  font-size: 20px;
+  margin-bottom: 18px;
+  color: #2b2116;
+  border-bottom: 2px solid rgba(0,0,0,0.15);
+  padding-bottom: 8px;
+}
+
+/* Links grid 
+.report-links{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 10px 22px;
+}*/
+.report-links{
+  display: flex;
+  flex-wrap: wrap;   /* allows next row if screen is small */
+  gap: 18px;
+}
+
+
+/* Two column bigger lists 
+.two-columns{
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+}*/
+.two-columns{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+
+/* Individual links */
+.report-links a{
+  text-decoration: none;
+  color: #2b2116;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: 0.18s;
+  font-weight: 500;
+}
+
+/* Hover effect */
+.report-links a:hover{
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  transform: translateX(5px);
+  color: #000;
+}
+
+/* Fix ProofPayReports horizontal layout only */
+.page-container:not(.bank-stmts) .two-columns{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+
+/* newly added*/
+.proof-reports .report-links a,
+.proof-reports .two-columns a {
+  display: inline-block;
+  width: auto;
+  white-space: nowrap;
+}
+.proof-reports .report-links{
+  align-items: flex-start;
+}
+
+
+/*bank stmts style*/
+
+
+
+/* ========== Bank Statements ========== */
+.bank-stmts .page-title{
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+}
+
+/* Wrapper */
+.bank-stmts .reports-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 45px; /* more space between boxes */
+}
+
+/* Box Design */
+.bank-stmts .report-box{
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.bank-stmts .report-box:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+/* Heading */
+.bank-stmts .report-heading{
+  font-size: 20px;
+  margin-bottom: 18px;
+  color: #2b2116;
+  border-bottom: 2px solid rgba(0,0,0,0.15);
+  padding-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+}
+
+/* Container for all heading groups */
+.bank-stmts .report-links {
+  display: flex;
+  flex-direction: column;  /*headings stacked vertically */
+  gap: 20px;
+}
+
+
+/*.bank-stmts .report-links {
+  display: flex;
+  flex-direction: row;   /* changed 
+  flex-wrap: wrap;       /* allows wrapping 
+  gap: 20px;
+}
+*/
+/* Each heading group */
+.bank-stmts .report-group {
+  display: flex;
+  flex-direction: column; /* heading + links */
+  gap: 15px; /* spacing between heading and links */
+}
+
+/* Subheading text */
+.bank-stmts .report-group strong {
+  font-weight: 600;
+  color: #2b2116;
+  margin-bottom: 6px;
+}
+
+/* Links row under each heading */
+.bank-stmts .report-group-links {
+  display: flex;           
+  gap: 20px;               /* space between horizontal links */
+  flex-wrap: wrap;         
+}
+
+/* Individual links */
+.bank-stmts .report-links a{
+  text-decoration: none;
+  color: #2b2116;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: 0.18s;
+  font-weight: 500;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: fit-content;
+}
+
+/* Hover effect - glossy 3D look */
+.bank-stmts .report-links a:hover{
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  transform: translateX(5px) translateY(-2px);
+  color: #000;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+
+/*----------CDAREPORTS--------*/
+/* ========== CDA Reports ========== */
+.cda-reports .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+}
+
+/* Wrapper */
+.cda-reports .reports-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Box Design */
+.cda-reports .report-box {
+  background: rgba(255,255,255,0.55); /* glass effect */
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.cda-reports .report-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+/* Heading */
+.cda-reports .report-heading {
+  font-size: 20px;
+  margin-bottom: 18px;
+  color: #2b2116;
+  border-bottom: 2px solid rgba(0,0,0,0.15);
+  padding-bottom: 8px;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+}
+
+/* Container for all heading groups */
+.cda-reports .report-links {
+  display: flex;
+  flex-direction: column; /* vertical stacking */
+  gap: 25px;
+}
+
+/* Each heading group */
+.cda-reports .report-group {
+  display: flex;
+  flex-direction: column; /* links stacked vertically */
+  gap: 12px;
+}
+
+/* Links row under each heading */
+.cda-reports .report-group-links {
+  display: flex;
+  gap: 15px;           /* horizontal spacing */
+  flex-wrap: wrap;
+}
+
+/* Individual links */
+.cda-reports .report-links a {
+  text-decoration: none;
+  color: #2b2116;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.18s;
+  font-weight: 500;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: fit-content;
+}
+
+/* Hover effect - glossy 3D look */
+.cda-reports .report-links a:hover {
+  background: linear-gradient(90deg, #c9a95c, #f3e6b3);
+  transform: translateX(5px) translateY(-2px);
+  color: #000;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+
+
+
+
+
+/* ========== Change Report ========== */
+.change-report .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+}
+
+.change-report .report-box {
+  background: rgba(255,255,255,0.55); /* glass effect */
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.change-report .report-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+.change-report .change-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.change-report .change-table th,
+.change-report .change-table td {
+  border: 1px solid #2b2116;
+  padding: 12px 15px;
+  text-align: center;
+  color: #2b2116;
+}
+
+.change-report .change-table th {
+  background: rgba(201, 169, 92, 0.2); /* soft highlight */
+  font-weight: 600;
+}
+
+.change-report .change-table td {
+  background: rgba(255,255,255,0.2);
+  transition: 0.2s;
+}
+
+.change-report .change-table td:hover {
+  background: linear-gradient(90deg, #c9a95c, #f3e6b3);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+/*------CPF after-----*/
+/* ===== CPFAfter Styling ===== */
+.cpf-after .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+}
+
+.cpf-after .report-box {
+  background: rgba(255,255,255,0.55); /* glass effect */
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.cpf-after .report-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+.cpf-after .cpf-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.cpf-after .cpf-table th,
+.cpf-after .cpf-table td {
+  border: 1px solid #2b2116;
+  padding: 12px 15px;
+  text-align: center;
+  color: #2b2116;
+}
+
+.cpf-after .cpf-table th {
+  background: rgba(201, 169, 92, 0.2);
+  font-weight: 600;
+}
+
+.cpf-after .cpf-table td {
+  background: rgba(255,255,255,0.2);
+  transition: 0.2s;
+}
+
+.cpf-after .cpf-table td:hover {
+  background: linear-gradient(90deg, #c9a95c, #f3e6b3);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+/*-------CPF upto---*/
+/* ===== CPFUpto Styling ===== */
+.cpf-upto .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+}
+
+.cpf-upto .report-box {
+  background: rgba(255,255,255,0.6); /* slightly different glass effect */
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  padding: 28px 32px;
+  box-shadow: 0 14px 32px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.45);
+  transition: 0.3s;
+}
+
+.cpf-upto .report-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.3);
+}
+
+.cpf-upto .cpf-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 22px;
+}
+
+.cpf-upto .cpf-table th,
+.cpf-upto .cpf-table td {
+  border: 1px solid #2b2116;
+  padding: 13px 16px;
+  text-align: center;
+  color: #2b2116;
+}
+
+.cpf-upto .cpf-table th {
+  background: rgba(220, 180, 100, 0.25);
+  font-weight: 600;
+}
+
+.cpf-upto .cpf-table td {
+  background: rgba(255,255,255,0.25);
+  transition: 0.25s;
+}
+
+.cpf-upto .cpf-table td:hover {
+  background: linear-gradient(90deg, #e0b850, #f7e2b0);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.18);
+}
+
+
+
+/* ===== OtherReports Styling ===== */
+.other-reports .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+}
+
+.other-reports .report-box {
+  background: rgba(255,255,255,0.55); /* glass effect */
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.other-reports .report-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+.other-reports .report-links {
+  display: flex;
+  flex-direction: column; /* vertical list */
+  gap: 15px; /* spacing between links */
+}
+
+.other-reports .report-links a {
+  text-decoration: none;
+  color: #2b2116;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: 0.2s;
+  font-weight: 500;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: fit-content;
+}
+
+.other-reports .report-links a:hover {
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  color: #000;
+  transform: translateX(5px) translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+
+
+/* ===== AnnualIncrement Styling ===== */
+.annual-increment .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+}
+
+.annual-increment .report-box {
+  background: rgba(255,255,255,0.55); /* glass effect */
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.annual-increment .report-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+.annual-increment .increment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.annual-increment .increment-table th,
+.annual-increment .increment-table td {
+  border: 1px solid #2b2116;
+  padding: 12px 15px;
+  text-align: center;
+  color: #2b2116;
+  transition: 0.2s;
+}
+
+.annual-increment .increment-table th {
+  background: rgba(201, 169, 92, 0.2);
+  font-weight: 600;
+}
+
+.annual-increment .increment-table td:hover {
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+
+
+/* ===== CCSVsPaybill Styling ===== */
+.ccs-paybill .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+}
+
+.ccs-paybill .report-box {
+  background: rgba(255,255,255,0.55); /* glass effect */
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.ccs-paybill .report-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+.ccs-paybill .report-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* spacing between links */
+}
+
+.ccs-paybill .report-links a {
+  text-decoration: none;
+  color: #2b2116;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: 0.2s;
+  font-weight: 500;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: fit-content;
+}
+
+.ccs-paybill .report-links a:hover {
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  color: #000;
+  transform: translateX(5px) translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+
+
+
+/* ===== ConsolidatedPayslips Styling ===== */
+.consolidated-payslips .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+}
+
+.consolidated-payslips .report-box {
+  background: rgba(255,255,255,0.55); /* glass effect */
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.consolidated-payslips .report-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+/* Text Box */
+.consolidated-payslips .text-box {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(43,33,22,0.3);
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.consolidated-payslips .text-box:focus {
+  border-color: #c9a95c;
+  box-shadow: 0 4px 12px rgba(201,169,92,0.3);
+}
+
+/* File Uploads */
+.consolidated-payslips .file-uploads {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.consolidated-payslips .file-uploads input[type="file"] {
+  border: 1px solid rgba(43,33,22,0.3);
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+}
+
+/* Links */
+.consolidated-payslips .report-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.consolidated-payslips .report-links a {
+  text-decoration: none;
+  color: #2b2116;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: fit-content;
+  transition: 0.2s;
+}
+
+.consolidated-payslips .report-links a:hover {
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  color: #000;
+  transform: translateX(5px) translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+
+
+
+/* ===== Pay Updation Styling ===== */
+.pay-updation .report-box {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 25px 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: 0.25s;
+}
+
+.pay-updation .report-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+}
+
+.pay-updation .report-heading {
+  font-size: 20px;
+  margin-bottom: 18px;
+  color: #2b2116;
+  border-bottom: 2px solid rgba(0,0,0,0.15);
+  padding-bottom: 8px;
+}
+
+.pay-updation .report-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px 18px;
+  margin-top: 12px;
+}
+
+.pay-updation .report-link {
+  text-decoration: none;
+  color: #2b2116;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: 0.2s;
+}
+
+.pay-updation .report-link:hover {
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  color: #000;
+  transform: translateX(3px) translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+
+
+
+/* ===== Personal Data Styling ===== */
+.pers-data .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+}
+
+/* Data input box */
+.pers-data .data-box {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pers-data .data-box input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.2);
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.pers-data .data-box input:focus {
+  outline: none;
+  border-color: #c9a95c;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Table styling */
+.pers-data .table-box table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.pers-data .table-box th,
+.pers-data .table-box td {
+  padding: 12px 15px;
+  text-align: left;
+  background: rgba(255,255,255,0.55);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.pers-data .table-box th {
+  font-weight: 600;
+  color: #2b2116;
+}
+
+.pers-data .table-box tr:hover td {
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3, #f3e6b3);
+  color: #000;
+  transition: 0.2s;
+}
+
+
+
+/* ===== CCS Recovery Styling ===== */
+.ccs-recovery .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+  padding: 20px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  text-align: center;
+}
+
+
+
+
+/* ===== Add Bill Page Styling ===== */
+.add-bill .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+  padding: 15px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  text-align: center;
+}
+
+/* Input group styling */
+.add-bill .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-bill label {
+  font-weight: 600;
+  color: #2b2116;
+}
+
+.add-bill input,
+.add-bill select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.2);
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.add-bill input:focus,
+.add-bill select:focus {
+  outline: none;
+  border-color: #c9a95c;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+
+
+
+/* ===== Add DV Page Styling ===== */
+.add-dv .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.3);
+  padding: 15px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  text-align: center;
+}
+
+/* Input group styling */
+.add-dv .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-dv label {
+  font-weight: 600;
+  color: #2b2116;
+}
+
+.add-dv input,
+.add-dv select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.2);
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: 0.2s;
+}
+
+.add-dv input:focus,
+.add-dv select:focus {
+  outline: none;
+  border-color: #c9a95c;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+
+
+
+
+
+/* ================= EXCEL TO BANK SOFT COPY ================= */
+.excel-bank .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+  padding: 15px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  text-align: center;
+}
+
+.excel-bank .links-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+}
+
+.excel-bank .links-wrapper a {
+  text-decoration: none;
+  color: #2b2116;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.excel-bank .links-wrapper a:hover {
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  transform: translateY(-2px);
+  color: #000;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* ================= OLD REPORTS / SCHEDULES ================= */
+.old-reports .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+  padding: 15px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  text-align: center;
+}
+
+.old-reports .links-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+}
+
+.old-reports .links-wrapper a {
+  text-decoration: none;
+  color: #2b2116;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.old-reports .links-wrapper a:hover {
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  transform: translateY(-2px);
+  color: #000;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* ================= PENDING BILLS ================= */
+.pending-bills .page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2b2116;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.3);
+  padding: 15px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  text-align: center;
+}
+
+.pending-bills .links-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+}
+
+.pending-bills .links-wrapper a {
+  text-decoration: none;
+  color: #2b2116;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.pending-bills .links-wrapper a:hover {
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  transform: translateY(-2px);
+  color: #000;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
