@@ -1612,3 +1612,60 @@ body {
   color: #000;
   box-shadow: 0 8px 18px rgba(0,0,0,0.25);
 }
+
+
+
+/* Table styling (matches your glass UI) */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid rgba(43,33,22,0.4);
+  padding: 10px;
+  text-align: center;
+  background: rgba(255,255,255,0.25);
+}
+
+.custom-table th {
+  background: rgba(201,169,92,0.25);
+  font-weight: 600;
+}
+
+/* Form layout */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* Input */
+.text-box {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.2);
+}
+
+/* Button */
+.submit-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#c9a95c,#f3e6b3);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+
+.form-grid {
+  display: flex;
+  flex-direction: column;  /* forces remarks below */
+  gap: 20px;
+}

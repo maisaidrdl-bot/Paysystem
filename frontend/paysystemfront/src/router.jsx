@@ -28,6 +28,8 @@ import ExcelBank from "./pages/ExcelBank";
 import OldReports from "./pages/OldReports";
 import PendingBills from "./pages/PendingBills";
 
+import PayUpdationDetail from "./pages/PayUpdationDetail";
+
 /* ---------- REPORT LINKS ---------- *//* the file that iam working with */
 const reportLinks = [
   { name: "Report Link 1" },
@@ -150,6 +152,11 @@ export const appRouter = createBrowserRouter([
         path: "updations/pay",
         element: <PayUpdation />,
       },
+
+      {
+  path: "updations/pay/:type",
+  element: <PayUpdationDetail />,
+},
       {
         path: "updations/personal",
         element: <PersData />,
