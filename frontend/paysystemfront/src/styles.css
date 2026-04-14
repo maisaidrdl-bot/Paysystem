@@ -1669,3 +1669,59 @@ body {
   flex-direction: column;  /* forces remarks below */
   gap: 20px;
 }
+
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 40px;
+}
+
+.form-row > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-table tbody tr:nth-child(odd) {
+  background-color: rgba(201,169,92,0.25); /* highlighted */
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: rgba(255,255,255,0.2); /* light */
+}
+
+.custom-table tbody tr:nth-child(odd) {
+  background-color: rgba(201,169,92,0.25); /* highlighted */
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: rgba(255,255,255,0.2); /* light */
+}
+
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* 🔥 IMPORTANT */
+}
+
+.custom-table td {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* 🔹 Input styling */
+.table-input {
+  width: 90%;
+  padding: 4px;
+  font-size: 12px;
+  box-sizing: border-box;
+}
