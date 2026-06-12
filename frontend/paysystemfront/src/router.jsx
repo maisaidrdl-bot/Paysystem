@@ -29,6 +29,7 @@ import OldReports from "./pages/OldReports";
 import PendingBills from "./pages/PendingBills";
 
 import PayUpdationDetail from "./pages/PayUpdationDetail";
+import CoreValidation from "./pages/CoreValidation";
 
 /* ---------- REPORT LINKS ---------- *//* the file that iam working with */
 const reportLinks = [
@@ -203,7 +204,10 @@ export const appRouter = createBrowserRouter([
         element: <MayurPankData />,
       },
 
-
+{
+  path: "core-validation",
+  element: <CoreValidation />,
+},
 
     ],
   },

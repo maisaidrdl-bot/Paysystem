@@ -70,9 +70,17 @@ const handleSubmit = async () => {
       <div className="report-box">
         <div className="report-links">
           {navLinks.map((item, idx) => (
-            <Link key={idx} to={`/updations/pay/${item}`} className="report-link">
-              {item.toUpperCase()}
-            </Link>
+            <Link
+  key={idx}
+  to={
+    item === "core"
+      ? "/core-validation"
+      : `/updations/pay/${item}`
+  }
+  className="report-link"
+>
+  {item.toUpperCase()}
+</Link>
           ))}
         </div>
       </div>
@@ -90,17 +98,21 @@ const handleSubmit = async () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="highlight-row">
-              <td colSpan="5">Values</td>
-            </tr>
-          </tbody>
+  <tr>
+    <td>100001</td>
+    <td>1</td>
+    <td>RAMESH</td>
+    <td>ARMY</td>
+    <td>MALE</td>
+  </tr>
+</tbody>
         </table>
 
         {/* 🔹 4. Bank */}
         <table className="custom-table">
           <tbody>
             <tr className="highlight-row">
-              <td>BANK ACCOUNT NO: 123456789012</td>
+              <td>BANK ACCOUNT NO: 9876543210</td>
             </tr>
           </tbody>
         </table>
@@ -491,10 +503,137 @@ const handleSubmit = async () => {
     {/* 🔹 Continue Button */}
     <button className="submit-btn">CONTINUE RECOVERY</button>
 
+
+
+
+
+
+
+
+
+
   </div>
 )}
 
+{type === "core" && (
+  <div className="report-box">
 
+    <h2 className="report-heading">CORE</h2>
+
+    <table className="custom-table">
+      <tbody>
+
+        <tr>
+          <td>GPF Subscription</td>
+          <td>
+            <input
+              className="text-box"
+              name="gpfSubscription"
+              onChange={(e) =>
+                handleChange(e.target.name, e.target.value)
+              }
+            />
+          </td>
+
+          <td>Income Tax</td>
+          <td>
+            <input
+              className="text-box"
+              name="incomeTax"
+              onChange={(e) =>
+                handleChange(e.target.name, e.target.value)
+              }
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>Income Tax Surcharge (3%)</td>
+          <td>
+            {Number(formData.incomeTax || 0) * 0.03}
+          </td>
+
+          <td>CCS Subscription</td>
+          <td>
+            <input
+              className="text-box"
+              name="ccsSubscription"
+              onChange={(e) =>
+                handleChange(e.target.name, e.target.value)
+              }
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>CCS Member No</td>
+          <td>
+            <input
+              className="text-box"
+              name="ccsMemberNo"
+              onChange={(e) =>
+                handleChange(e.target.name, e.target.value)
+              }
+            />
+          </td>
+
+          <td></td>
+          <td></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <button
+      className="submit-btn"
+      onClick={async () => {
+
+        const incomeTax =
+          Number(formData.incomeTax || 0);
+
+        const payload = {
+          persNo: "100001",
+          idNo: "1",
+
+          gpfSubscription:
+            Number(formData.gpfSubscription || 0),
+
+          incomeTax: incomeTax,
+
+          incomeTaxSurcharge:
+            incomeTax * 0.03,
+
+          ccsSubscription:
+            Number(formData.ccsSubscription || 0),
+
+          ccsMemNo:
+            formData.ccsMemberNo || ""
+        };
+
+        console.log(payload);
+
+        try {
+console.log("CORE SAVE CALLED");
+          await axios.post(
+            "http://localhost:8080/api/core/save",
+            payload
+          );
+
+          alert("CORE Saved Successfully");
+
+        } catch (err) {
+
+          console.error(err);
+
+          alert("Save Failed");
+        }
+      }}
+    >
+      SAVE
+    </button>
+
+  </div>
+)}
 
 
 

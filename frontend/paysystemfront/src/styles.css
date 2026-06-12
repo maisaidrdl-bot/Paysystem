@@ -1725,3 +1725,27 @@ body {
   font-size: 12px;
   box-sizing: border-box;
 }
+.core-box {
+  padding: 30px;
+}
+
+.core-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 80px;
+  margin-top: 20px;
+}
+
+.core-grid label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.core-grid .text-box {
+  width: 220px;
+}
+
+.core-box .submit-btn {
+  margin-top: 40px;
+}

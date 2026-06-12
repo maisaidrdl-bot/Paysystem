@@ -63,7 +63,11 @@ export default function PayUpdation() {
             {links.map((link, idx) => (
               <Link
                 key={idx}
-                to={`/updations/pay/${link.toLowerCase().replace(/ /g, "-")}`}
+                to={
+  link === "Core"
+    ? "/core-validation"
+    : `/updations/pay/${link.toLowerCase().replace(/ /g, "-")}`
+}
                 className="report-link"
               >
                 {link}
